@@ -3,8 +3,8 @@ import React from 'react';
 const Icon = ({
   name,
   fill = '#000000',
-  width = '80px',
-  height = '80px',
+  width = '3rem',
+  height = '3rem',
   className,
 }) => {
   switch (name) {

@@ -42,5 +42,33 @@ export const data = {
       url: 'www.google.com',
       description: 'radio radio radio',
     },
+    {
+      name: 'plane',
+      svg: 'plane',
+      alt: 'plane',
+      url: 'www.google.com',
+      description: 'planes planes planes',
+    },
+    {
+      name: 'boat',
+      svg: 'anchor',
+      alt: 'boat',
+      url: 'www.google.com',
+      description: 'boats boats boats',
+    },
+    {
+      name: 'satellite',
+      svg: 'iss',
+      alt: 'satellite',
+      url: 'www.google.com',
+      description: 'satellite satellite satellite',
+    },
+    {
+      name: 'lightning',
+      svg: 'lightning',
+      alt: 'bolightningat',
+      url: 'www.google.com',
+      description: 'lightning lightning lightning',
+    },
   ],
 };
