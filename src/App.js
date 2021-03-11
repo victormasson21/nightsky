@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Satellite from './satellite/satellite.js';
+import { data } from './app.data';
+import './app.css';
 
-function App() {
+const App = () => {
+  console.log('app.js - data.satellites 🌈 ', data.satellites);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="w-screen h-screen bg-blue-900">
+      <div>
+        {data.satellites.map(satellite => {
+          return (
+            <>
+              <Satellite
+                key={satellite.svg}
+                svg={satellite.svg}
+                alt={satellite.alt}
+                url={satellite.url}
+                description={satellite.description}
+              />
+            </>
+          );
+        })}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
