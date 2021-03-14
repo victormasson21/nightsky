@@ -1,4 +1,3 @@
-import './satellite.css';
 import Icon from '../icon/icon';
 
 const Satellite = ({ svg, alt, url, description }) => {

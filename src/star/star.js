@@ -1,42 +1,66 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import {
+  getTrajectory,
+  getInitialDelay,
+  getTransitionStyle,
+  getTransitionDuration,
+} from '../utils/get-functions';
 
-const randomOneToTen = () => {
-  return Math.floor(Math.random() * 10 + 1);
-};
+/* create a massive array of stars
+  origin
+  initialPositon
+  initialDelay
+  translate
+  transitionDuration (3s / 30s / 1m) ?
+  transitionStyle > linear / ease-in / ease-out / ease
+  glowStyle (width / spread) > 4 different ones
 
-const Star = ({ origin = 'right' }) => {
-  const randomForPosition = randomOneToTen();
-  const randomForTranslate = randomOneToTen(); /* Random with negative */
-  let position, translate;
-  const [transform, setTransform] = useState(null);
+  animate-pulse ?
 
-  switch (origin) {
-    case 'left':
-      position = `-left-10 top-${randomForPosition}`;
-      translate = `translate-x-11vw translate-y-${randomForTranslate}vh`;
-      break;
-    case 'right':
-      position = `-right-10 top-${randomForPosition}`;
-      translate = `-translate-x-11vw translate-y-${randomForTranslate}vh`;
-      break;
-    case 'bottom':
-      position = `-bottom-10 left-${randomForPosition}`;
-      translate = `-translate-y-11vh translate-x-${randomForTranslate}vw`;
-      break;
-    case 'top':
-    default:
-      position = `-top-10 left-${randomForPosition}`;
-      translate = `translate-y-11vh translate-x-${randomForTranslate}vw`;
-  }
+  Array from tailwind.config ?
+*/
+
+const Star = ({
+  // origin = '',
+  // initialPositon = '',
+  // translate = '',
+  // transitionStyle = 'ease',
+  // initialDelay = '',
+  // transitionDuration = '1m',
+  glowStyle = 'glow',
+  lifespan = '600000' /* Default lifespan: 10 minutes */,
+}) => {
+  /* Define life span */
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    setTransform(translate);
-  }, [translate]);
+    setTimeout(() => {
+      setIsVisible(false);
+    }, lifespan);
+  }, [lifespan]);
+
+  /* Define params */
+
+  const initialDelay = getInitialDelay();
+  const { initialPositon, translate } = getTrajectory();
+  const transitionStyle = getTransitionStyle();
+  const transitionDuration = getTransitionDuration();
 
   return (
-    <div
-      className={`w-0.5 h-0.5 rounded-full bg-white shadow-glow absolute ${position} transition duration-5 ease-in-out transform ${transform}`}
-    />
+    isVisible && (
+      <div
+        className={`w-0.5 h-0.5 
+        rounded-full bg-white 
+        shadow-${glowStyle} absolute 
+        ${initialPositon} 
+        transform ${translate}
+        transition 
+        delay-${initialDelay} 
+        duration-${transitionDuration} 
+        ${transitionStyle} 
+        `}
+      />
+    )
   );
 };
 
