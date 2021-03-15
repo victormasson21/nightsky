@@ -1,13 +1,13 @@
 import React from 'react';
-import Star from '../star/star';
+import StaticStar from '../static-star/static-star';
 
-const Flashing = () => {
+const Canopy = () => {
   // 2 * moving stars > 20 random stars / pop in every 5 to 10 seconds / over 1mn with 30s delay
-  const stars = new Array(90).fill('');
+  const stars = new Array(30).fill('');
 
-  const content = stars.map(star => <Star />);
+  const content = stars.map(star => <StaticStar />);
 
   return <div className="w-full h-full overflow-hidden">{content}</div>;
 };
 
-export default Flashing;
+export default Canopy;
