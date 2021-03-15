@@ -124,7 +124,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      // transitionProperty: ['responsive', 'motion-safe', 'motion-reduce']
+    },
   },
   plugins: [],
 }

@@ -42,8 +42,18 @@ export const getTrajectory = (origin = '') => {
 export const getInitialDelay = () => {
   return randomFromArray([
     '1s',
+    '1s',
+    '1s',
+    '1s',
+    '1s',
+    '1s',
+    '1s',
+    '1s',
+    '5s',
     '5s',
     '10s',
+    '10s',
+    '15s',
     '15s',
     '20s',
     '25s',
