@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './app.css';
 // import { data } from './app.data';
 // import Satellite from './satellite/satellite.js';
 import Flashing from './flashing/flashing.js';
