@@ -8,6 +8,22 @@ export const getOrigin = () => {
   return randomFromArray(['top', 'left', 'right', 'bottom']);
 };
 
+export const getStaticPosition = () => {
+  const randomForTop = randomOneToX(9);
+  const randomForTopDecimal = randomOneToX(9);
+  const randomForLeft = randomOneToX(9);
+  const randomForLeftDecimal = randomOneToX(9);
+
+  const staticPosition = `
+    top-${randomForTop}vh 
+    mt-${randomForTopDecimal} 
+    left-${randomForLeft}vw 
+    ml-${randomForLeftDecimal}
+  `;
+
+  return staticPosition;
+};
+
 export const getTrajectory = (origin = '') => {
   origin = origin || getOrigin();
   const randomForPosition = randomOneToX(10);
@@ -41,12 +57,6 @@ export const getTrajectory = (origin = '') => {
 
 export const getInitialDelay = () => {
   return randomFromArray([
-    '1s',
-    '1s',
-    '1s',
-    '1s',
-    '1s',
-    '1s',
     '1s',
     '1s',
     '5s',

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { data } from './app.data';
 // import Satellite from './satellite/satellite.js';
 import Flashing from './flashing/flashing.js';
+import Canopy from './canopy/canopy.js';
 
 const App = () => {
   const [test, setTest] = useState(true);
@@ -36,6 +37,7 @@ const App = () => {
       "
     >
       <Flashing />
+      <Canopy />
     </div>
   );
 };
